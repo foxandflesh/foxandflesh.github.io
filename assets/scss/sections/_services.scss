@@ -1,0 +1,200 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Services Section
+--------------------------------------------------------------*/
+.services {
+  .services-container {
+    margin-bottom: 60px;
+
+    .service-item {
+      display: flex;
+      background-color: var(--surface-color);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 10px 30px color-mix(in srgb, var(--accent-color), transparent 92%);
+      transition: all 0.4s ease;
+      height: 100%;
+
+      &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px color-mix(in srgb, var(--accent-color), transparent 85%);
+
+        .service-icon {
+          background-color: var(--accent-color);
+          color: var(--contrast-color);
+        }
+
+        .service-link {
+          color: var(--accent-color);
+
+          i {
+            transform: translateX(5px);
+          }
+        }
+      }
+
+      .service-icon {
+        flex: 0 0 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+        color: var(--accent-color);
+        font-size: 2rem;
+        transition: all 0.3s ease;
+      }
+
+      .service-content {
+        padding: 30px;
+        position: relative;
+      }
+
+      .service-number {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 4rem;
+        font-weight: 800;
+        color: color-mix(in srgb, var(--heading-color), transparent 90%);
+        line-height: 1;
+        opacity: 0.5;
+        z-index: 1;
+      }
+
+      .service-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: var(--heading-color);
+        position: relative;
+        z-index: 2;
+      }
+
+      .service-text {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
+        color: color-mix(in srgb, var(--default-color), transparent 20%);
+        position: relative;
+        z-index: 2;
+      }
+
+      .service-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: color-mix(in srgb, var(--accent-color), transparent 20%);
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 2;
+
+        i {
+          transition: transform 0.3s ease;
+        }
+      }
+    }
+  }
+
+  .cta-wrapper {
+    .cta-box {
+      background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 15%), color-mix(in srgb, var(--accent-color), transparent 5%));
+      border-radius: 20px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 40px color-mix(in srgb, var(--default-color), transparent 85%);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('assets/img/bg/dotted-world-1.webp');
+        background-size: cover;
+        opacity: 0.05;
+        z-index: 1;
+      }
+
+      .cta-image {
+        position: relative;
+        z-index: 2;
+
+        img {
+          width: 150px;
+          height: 150px;
+          object-fit: cover;
+          border: 5px solid color-mix(in srgb, var(--contrast-color), transparent 15%);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+          @media (max-width: 991px) {
+            margin-bottom: 30px;
+          }
+        }
+      }
+
+      .cta-content {
+        position: relative;
+        z-index: 2;
+
+        h3 {
+          font-size: 1.8rem;
+          font-weight: 700;
+          margin-bottom: 15px;
+          color: var(--contrast-color);
+        }
+
+        p {
+          color: color-mix(in srgb, var(--contrast-color), transparent 15%);
+          margin-bottom: 25px;
+          font-size: 1rem;
+          line-height: 1.6;
+        }
+
+        .primary-btn {
+          display: inline-block;
+          background-color: var(--contrast-color);
+          color: var(--accent-color);
+          padding: 12px 25px;
+          border-radius: 50px;
+          font-weight: 600;
+          font-size: 0.95rem;
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+          }
+        }
+
+        @media (max-width: 991px) {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 60px 0;
+
+    .services-container {
+      .service-item {
+        flex-direction: column;
+
+        .service-icon {
+          flex: 0 0 auto;
+          height: 80px;
+          width: 100%;
+        }
+      }
+    }
+
+    .cta-wrapper .cta-box {
+      padding: 30px 20px;
+    }
+  }
+}
