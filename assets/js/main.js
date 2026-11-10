@@ -141,7 +141,7 @@
   document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
     let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
     let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
-    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
+    let sortBy = isotopeItem.getAttribute('data-sort') ?? 'original-order';
 
     let initIsotope;
     imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
@@ -149,7 +149,7 @@
         itemSelector: '.isotope-item',
         layoutMode: layout,
         filter: filter,
-        sortBy: sort
+        sortBy: sortBy
       });
     });
 
@@ -167,6 +167,125 @@
     });
 
   });
+
+
+  /**
+   * Fox & Flesh application form
+   */
+  const applicationForm = document.querySelector('#creator-application');
+
+  if (applicationForm) {
+    const developmentInterest = applicationForm.querySelector('#interest-development');
+    const productionInterest = applicationForm.querySelector('#interest-production');
+    const developmentFields = applicationForm.querySelector('#development-fields');
+    const productionFields = applicationForm.querySelector('#production-fields');
+    const developmentExperience = applicationForm.querySelector('#development-experience');
+    const productionExperience = applicationForm.querySelector('#production-experience');
+    const ageConfirmation = applicationForm.querySelector('#production-age-confirmation');
+    const opportunityError = applicationForm.querySelector('#opportunity-error');
+    const applicationResult = applicationForm.querySelector('#application-result');
+    const submitButton = applicationForm.querySelector('button[type="submit"]');
+    const submitLabel = submitButton?.querySelector('.submit-label');
+    const accessKey = applicationForm.querySelector('input[name="access_key"]');
+
+    function setPathwayVisibility() {
+      const developmentSelected = developmentInterest?.checked ?? false;
+      const productionSelected = productionInterest?.checked ?? false;
+
+      if (developmentFields) developmentFields.hidden = !developmentSelected;
+      if (productionFields) productionFields.hidden = !productionSelected;
+
+      if (developmentExperience) developmentExperience.required = developmentSelected;
+      if (productionExperience) productionExperience.required = productionSelected;
+      if (ageConfirmation) ageConfirmation.required = productionSelected;
+
+      if (developmentSelected || productionSelected) {
+        opportunityError.textContent = '';
+      }
+    }
+
+    function showApplicationResult(message, type) {
+      if (!applicationResult) return;
+
+      applicationResult.textContent = message;
+      applicationResult.classList.remove('is-success', 'is-error', 'is-visible');
+      applicationResult.classList.add(type === 'success' ? 'is-success' : 'is-error', 'is-visible');
+    }
+
+    function clearApplicationResult() {
+      if (!applicationResult) return;
+
+      applicationResult.textContent = '';
+      applicationResult.classList.remove('is-success', 'is-error', 'is-visible');
+    }
+
+    developmentInterest?.addEventListener('change', setPathwayVisibility);
+    productionInterest?.addEventListener('change', setPathwayVisibility);
+
+    setPathwayVisibility();
+
+    applicationForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      clearApplicationResult();
+
+      const developmentSelected = developmentInterest?.checked ?? false;
+      const productionSelected = productionInterest?.checked ?? false;
+
+      if (!developmentSelected && !productionSelected) {
+        opportunityError.textContent = 'Select at least one opportunity type.';
+        opportunityError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      setPathwayVisibility();
+
+      if (!applicationForm.checkValidity()) {
+        applicationForm.reportValidity();
+        return;
+      }
+
+      if (!accessKey || !accessKey.value || accessKey.value === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+        showApplicationResult('Applications are not live yet. Add the Web3Forms access key before publishing this form.', 'error');
+        return;
+      }
+
+      if (submitButton) submitButton.disabled = true;
+      if (submitLabel) submitLabel.textContent = 'Sending...';
+
+      try {
+        const formData = new FormData(applicationForm);
+        const response = await fetch(applicationForm.action, {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          throw new Error(data.message || 'Unable to submit the application.');
+        }
+
+        showApplicationResult('Application received. We’ll review it and reach out if there’s a fit.', 'success');
+
+        if (typeof gtag === 'function') {
+          gtag('event', 'application_submit', {
+            event_category: 'engagement',
+            creator_development: developmentSelected,
+            production_opportunities: productionSelected
+          });
+        }
+
+        applicationForm.reset();
+        setPathwayVisibility();
+
+      } catch (error) {
+        showApplicationResult('Something went wrong while sending the application. Please try again or contact us through Instagram.', 'error');
+      } finally {
+        if (submitButton) submitButton.disabled = false;
+        if (submitLabel) submitLabel.textContent = 'Apply';
+      }
+    });
+  }
 
   /**
    * Frequently Asked Questions Toggle
