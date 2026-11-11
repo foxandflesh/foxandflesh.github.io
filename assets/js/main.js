@@ -141,7 +141,7 @@
   document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
     let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
     let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
-    let sortBy = isotopeItem.getAttribute('data-sort') ?? 'original-order';
+    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
 
     let initIsotope;
     imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
@@ -149,7 +149,7 @@
         itemSelector: '.isotope-item',
         layoutMode: layout,
         filter: filter,
-        sortBy: sortBy
+        sortBy: sort
       });
     });
 
@@ -186,7 +186,6 @@
     const applicationResult = applicationForm.querySelector('#application-result');
     const submitButton = applicationForm.querySelector('button[type="submit"]');
     const submitLabel = submitButton?.querySelector('.submit-label');
-    const accessKey = applicationForm.querySelector('input[name="access_key"]');
 
     function setPathwayVisibility() {
       const developmentSelected = developmentInterest?.checked ?? false;
@@ -244,25 +243,33 @@
         return;
       }
 
-      if (!accessKey || !accessKey.value || accessKey.value === 'YOUR_WEB3FORMS_ACCESS_KEY') {
-        showApplicationResult('Applications are not live yet. Add the Web3Forms access key before publishing this form.', 'error');
-        return;
-      }
-
       if (submitButton) submitButton.disabled = true;
       if (submitLabel) submitLabel.textContent = 'Sending...';
 
       try {
         const formData = new FormData(applicationForm);
+        const payload = Object.fromEntries(formData.entries());
+
+        payload._email = {
+          subject: formData.get('_email.subject'),
+          from: formData.get('_email.from')
+        };
+
+        delete payload['_email.subject'];
+        delete payload['_email.from'];
+
         const response = await fetch(applicationForm.action, {
           method: 'POST',
-          body: formData
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
         });
 
-        const data = await response.json();
-
-        if (!response.ok || !data.success) {
-          throw new Error(data.message || 'Unable to submit the application.');
+        if (!response.ok) {
+          const message = await response.text();
+          throw new Error(message || 'Unable to submit the application.');
         }
 
         showApplicationResult('Application received. We’ll review it and reach out if there’s a fit.', 'success');
