@@ -1293,7 +1293,7 @@ section,
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("../img/bg/abstract-bg-3.webp");
+  background: url("../img/bg/dotted-world-1.webp");
   background-size: cover;
   opacity: 0.05;
   z-index: 1;
@@ -3224,3 +3224,216 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+/*--------------------------------------------------------------
+# Fox & Flesh Refinements
+--------------------------------------------------------------*/
+.header .header-apply-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  border-radius: 50px;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  font-family: var(--nav-font);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--accent-color), transparent 76%);
+}
+
+.header .header-apply-btn:hover {
+  color: var(--contrast-color);
+  background: color-mix(in srgb, var(--accent-color), #000 12%);
+  transform: translateY(-1px);
+}
+
+.services .creator-cta .cta-image img {
+  width: 190px;
+  height: 190px;
+  object-fit: cover;
+}
+
+.services .creator-cta .cta-content {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.services .creator-cta .cta-content .primary-btn {
+  padding: 13px 34px;
+}
+
+.services .opportunities-cta .opportunity-content {
+  text-align: left;
+}
+
+.services .opportunities-cta .opportunity-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.services .opportunities-cta .opportunity-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--contrast-color), transparent 88%);
+  border: 1px solid color-mix(in srgb, var(--contrast-color), transparent 78%);
+  color: var(--contrast-color);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.services .opportunities-cta .opportunity-lead {
+  margin-bottom: 14px;
+}
+
+.services .opportunities-cta .opportunity-points {
+  margin: 2px 0 14px;
+}
+
+.services .opportunities-cta .opportunity-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid color-mix(in srgb, var(--contrast-color), transparent 82%);
+}
+
+.services .opportunities-cta .opportunity-point:last-child {
+  border-bottom: 1px solid color-mix(in srgb, var(--contrast-color), transparent 82%);
+}
+
+.services .opportunities-cta .opportunity-point > i {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--contrast-color), transparent 86%);
+  color: var(--contrast-color);
+}
+
+.services .opportunities-cta .opportunity-point strong,
+.services .opportunities-cta .opportunity-point span {
+  display: block;
+}
+
+.services .opportunities-cta .opportunity-point strong {
+  color: var(--contrast-color);
+  margin-bottom: 3px;
+  font-size: 0.92rem;
+}
+
+.services .opportunities-cta .opportunity-point span {
+  color: color-mix(in srgb, var(--contrast-color), transparent 18%);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.services .opportunities-cta .opportunity-note {
+  margin-bottom: 20px;
+  font-size: 0.86rem;
+}
+
+.contact .contact-wrapper {
+  align-items: stretch;
+}
+
+.contact .contact-info-panel,
+.contact .contact-form-panel,
+.contact .form-container {
+  height: 100%;
+}
+
+.footer {
+  padding: 0;
+}
+
+.footer .footer-minimal {
+  min-height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.footer .footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+  font-weight: 600;
+}
+
+.footer .footer-brand img {
+  width: auto;
+  height: 32px;
+}
+
+.footer .footer-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: color-mix(in srgb, var(--default-color), transparent 28%);
+  font-size: 0.82rem;
+}
+
+.footer .footer-meta a {
+  color: color-mix(in srgb, var(--default-color), transparent 12%);
+}
+
+.footer .footer-meta a:hover {
+  color: var(--accent-color);
+}
+
+@media (max-width: 767px) {
+  .services .opportunities-cta .opportunity-content {
+    text-align: center;
+  }
+
+  .services .opportunities-cta .opportunity-pills {
+    justify-content: center;
+  }
+
+  .services .opportunities-cta .opportunity-point {
+    text-align: left;
+  }
+
+  .footer .footer-minimal {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer .footer-meta {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 575px) {
+  .header .header-apply-btn {
+    padding: 9px 18px;
+    font-size: 0.9rem;
+  }
+
+  .footer .footer-divider {
+    display: none;
+  }
+
+  .footer .footer-meta {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+

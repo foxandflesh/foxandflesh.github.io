@@ -3,7 +3,7 @@
   File: index.html
   Project: Fox & Flesh | Model Management, Creator Development, and Production Support
   Created: 07.21.2026
-  Updated: 11.10.2026
+  Updated: 11.11.2026
   Author: Faro Digital Studio
 -->
 <html lang="en">
@@ -93,25 +93,12 @@
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0" aria-label="Fox and Flesh home">
+      <a href="#hero" class="logo d-flex align-items-center" aria-label="Fox and Flesh home">
         <img src="assets/img/logo.png" alt="Fox &amp; Flesh logo">
-        <h5 class="sitename d-none d-md-block ms-2 mb-0 fw-semibold">Fox &amp; Flesh</h5>
+        <h5 class="sitename d-none d-sm-block ms-2 mb-0 fw-semibold">Fox &amp; Flesh</h5>
       </a>
 
-      <nav id="navmenu" class="navmenu" aria-label="Primary navigation">
-        <ul>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#growth">Process</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#apply">Apply</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Toggle navigation"></i>
-      </nav>
-
-      <div class="header-social-links">
-        <a href="https://www.instagram.com/foxandflesh" class="instagram" target="_blank" rel="noopener noreferrer" aria-label="Fox and Flesh on Instagram"><i class="bi bi-instagram"></i></a>
-        <a href="https://linktr.ee/foxandflesh" target="_blank" rel="noopener noreferrer" aria-label="Fox and Flesh links"><i class="bi bi-link-45deg"></i></a>
-      </div>
+      <a href="#apply" class="header-apply-btn">Apply</a>
 
     </div>
   </header>
@@ -136,7 +123,7 @@
                 <a href="#apply" class="btn btn-primary">Apply</a>
                 <a href="#growth" class="btn btn-outline">
                   <i class="bi bi-arrow-down-circle"></i>
-                  Process
+                  Our Process
                 </a>
               </div>
             </div>
@@ -240,7 +227,7 @@
               </div>
 
               <div class="cta-buttons">
-                <a href="#services" class="btn-get-started">Services</a>
+                <a href="#apply" class="btn-get-started">Apply</a>
               </div>
             </div>
           </div>
@@ -307,23 +294,21 @@
           </div>
         </div>
 
-        <div class="cta-wrapper mt-5 text-center" data-aos="fade-up" data-aos-delay="100">
-          <div class="row">
-            <div class="col-lg-8 offset-lg-2">
+        <div class="cta-wrapper creator-cta mt-5 text-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="row justify-content-center">
+            <div class="col-lg-9">
               <div class="cta-box">
-                <div class="row align-items-center">
+                <div class="row align-items-center justify-content-center g-4">
                   <div class="col-lg-4">
                     <div class="cta-image d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="200">
-                      <img src="assets/img/apply.png" alt="Creator strategy consultation" class="img-fluid rounded-circle" width="1254" height="1254" loading="lazy" style="width: 190px; height: 190px; object-fit: cover;">
+                      <img src="assets/img/apply.png" alt="Creator strategy consultation" class="img-fluid rounded-circle" width="1254" height="1254" loading="lazy">
                     </div>
                   </div>
                   <div class="col-lg-8">
-                    <div class="cta-content text-lg-start" data-aos="fade-left" data-aos-delay="300">
+                    <div class="cta-content text-center" data-aos="fade-left" data-aos-delay="300">
                       <h3>You do not need a huge following<br>to be worth developing</h3>
                       <p>Presence, potential, professionalism, and drive matter<br>more than follower count.</p>
-                      <div class="d-flex justify-content-center mt-3">
-                        <a href="#apply" class="primary-btn px-4 py-3">Apply</a>
-                      </div>
+                      <a href="#apply" class="primary-btn">Apply</a>
                     </div>
                   </div>
                 </div>
@@ -416,20 +401,44 @@
       </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="cta-wrapper text-center">
-          <div class="row">
-            <div class="col-lg-10 offset-lg-1">
+        <div class="cta-wrapper opportunities-cta">
+          <div class="row justify-content-center">
+            <div class="col-lg-10">
               <div class="cta-box">
                 <div class="row align-items-stretch g-4">
                   <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
                     <img src="assets/img/opportunity.png" class="img-fluid rounded-4 shadow w-100 h-100 object-fit-cover" alt="Creator exploring new professional opportunities" width="1448" height="1086" loading="lazy">
                   </div>
                   <div class="col-lg-6 d-flex">
-                    <div class="cta-content d-flex flex-column justify-content-center text-center h-100 w-100 px-lg-4 py-3" data-aos="fade-left" data-aos-delay="300">
+                    <div class="cta-content opportunity-content d-flex flex-column justify-content-center h-100 w-100 px-lg-4 py-3" data-aos="fade-left" data-aos-delay="300">
+                      <div class="opportunity-pills">
+                        <span class="opportunity-pill"><i class="bi bi-stars"></i> Creator Development</span>
+                        <span class="opportunity-pill"><i class="bi bi-camera-reels"></i> Production Opportunities</span>
+                      </div>
+
                       <h3>Build on Your Terms</h3>
-                      <p>Strengthen your own brand, explore better collaborations, or pursue selected professional productions when the fit is right.</p>
-                      <p>Creator development and production opportunities remain separate paths. You choose what interests you.</p>
-                      <div class="d-flex justify-content-center">
+                      <p class="opportunity-lead">Strengthen your own brand, explore better collaborations, or pursue selected professional productions when the fit is right.</p>
+
+                      <div class="opportunity-points">
+                        <div class="opportunity-point">
+                          <i class="bi bi-person-badge"></i>
+                          <div>
+                            <strong>Grow your platform</strong>
+                            <span>Sharper positioning, content direction, audience strategy, and profile polish.</span>
+                          </div>
+                        </div>
+                        <div class="opportunity-point">
+                          <i class="bi bi-film"></i>
+                          <div>
+                            <strong>Explore productions</strong>
+                            <span>Optional paid collaborations for adult models and creators who actively choose that path.</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <p class="opportunity-note"><strong>Separate paths.</strong> Choosing one never commits you to the other.</p>
+
+                      <div class="d-flex justify-content-center justify-content-lg-start">
                         <a href="#apply" class="primary-btn">Explore Opportunities</a>
                       </div>
                     </div>
@@ -649,11 +658,11 @@
               <h3>Start the<br>Conversation</h3>
               <p>Choose the path that fits. You can select either option or both.</p>
 
-              <form id="creator-application" class="application-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
-                <!-- Replace with the Web3Forms access key assigned to the application inbox. -->
-                <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
-                <input type="hidden" name="subject" value="New Fox & Flesh Application">
-                <input type="checkbox" name="botcheck" class="application-botcheck" tabindex="-1" autocomplete="off">
+              <form id="creator-application" class="application-form" action="https://submit-form.com/f3OmLgda9" method="POST">
+                <!-- Formspark notification settings -->
+                <input type="hidden" name="_email.subject" value="[FOX & FLESH] Model Intake">
+                <input type="hidden" name="_email.from" value="Fox and Flesh">
+                <input type="checkbox" name="_honeypot" class="application-botcheck" tabindex="-1" autocomplete="off">
 
                 <div class="row g-3">
                   <div class="col-md-6">
@@ -753,53 +762,17 @@
   </main>
 
   <footer id="footer" class="footer light-background">
-    <div class="container">
-      <div class="row gy-3">
-        <div class="col-lg-3 col-md-6 d-flex">
-          <i class="bi bi-gem icon"></i>
-          <div>
-            <h4>Fox &amp; Flesh</h4>
-            <p>Creator development, strategy, and production support for models and online creators.</p>
-          </div>
-        </div>
+    <div class="container footer-minimal">
+      <a href="#hero" class="footer-brand" aria-label="Fox and Flesh home">
+        <img src="assets/img/logo.png" alt="" aria-hidden="true">
+        <span>Fox &amp; Flesh</span>
+      </a>
 
-        <div class="col-lg-3 col-md-6 d-flex">
-          <i class="bi bi-compass icon"></i>
-          <div>
-            <h4>Explore</h4>
-            <p>
-              <a href="#about">About</a><br>
-              <a href="#services">Services</a><br>
-              <a href="#growth">Process</a>
-            </p>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex">
-          <i class="bi bi-stars icon"></i>
-          <div>
-            <h4>Start</h4>
-            <p>
-              <a href="#standards">Standards</a><br>
-              <a href="#faq">FAQ</a><br>
-              <a href="#apply">Application</a>
-            </p>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6">
-          <h4>Connect</h4>
-          <div class="social-links d-flex">
-            <a href="https://www.instagram.com/foxandflesh" class="instagram" target="_blank" rel="noopener noreferrer" aria-label="Fox and Flesh on Instagram"><i class="bi bi-instagram"></i></a>
-            <a href="https://linktr.ee/foxandflesh" target="_blank" rel="noopener noreferrer" aria-label="Fox and Flesh links"><i class="bi bi-link-45deg"></i></a>
-          </div>
-        </div>
+      <div class="footer-meta">
+        <span>© 2026 Fox &amp; Flesh. All Rights Reserved.</span>
+        <span class="footer-divider" aria-hidden="true">•</span>
+        <span>Powered by <a href="https://farodigitalstudio.com" target="_blank" rel="noopener noreferrer">Faro Digital Studio</a></span>
       </div>
-    </div>
-
-    <div class="container copyright text-center mt-4">
-      <p>© <span>2026</span> <strong class="px-1 sitename">Fox &amp; Flesh</strong> <span>All Rights Reserved</span><br>
-        Powered by <a href="https://farodigitalstudio.com" target="_blank" rel="noopener noreferrer">Faro Digital Studio</a></p>
     </div>
   </footer>
 
